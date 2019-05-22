@@ -7,7 +7,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    # Create route for items
+    # This will list all of your items no matter what path you put in
     if req.path.match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"

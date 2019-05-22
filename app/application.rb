@@ -27,6 +27,7 @@ class Application
         end
       end
 
+    # Create a new route called /add that takes in a GET param with the key item
     elsif req.path.match(/add/)
       search_term = req.params["item"]
       if @@items.include?(search_term)

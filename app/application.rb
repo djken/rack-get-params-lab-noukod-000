@@ -7,6 +7,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
+    # Create route for items
     if req.path.match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
@@ -16,6 +17,7 @@ class Application
       search_term = req.params["q"]
       resp.write handle_search(search_term)
 
+      # Create a new route called /cart to show the items in your cart
     elsif req.path.match(/cart/)
       if @@cart.empty?
         resp.write "Your cart is empty"
